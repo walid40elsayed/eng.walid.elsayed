@@ -64,6 +64,35 @@ This project is a complete, production-ready **data science and analysis pipelin
 
 ## 🗂️ Project Structure
 
+iot-data-pipeline/
+├── data/
+│   ├── raw/               # Original CSVs from CIC-IoT 2023 dataset
+│   ├── processed/         # Cleaned, transformed, and SMOTE-balanced data
+│
+├── notebooks/
+│   ├── 01_eda.ipynb       # Exploratory data analysis and feature selection
+│   ├── 02_modeling.ipynb  # Model training and evaluation
+│
+├── scripts/
+│   ├── pipeline.py        # End-to-end executable pipeline
+│   └── helpers.py         # Utility functions (feature selection, SMOTE, plots)
+│
+├── outputs/
+│   ├── visualizations/    # Saved figures (heatmaps, confusion matrix, etc.)
+│   └── models/            # Trained models and artifacts (if serialized)
+│
+├── docs/
+│   ├── index.md           # Homepage for MkDocs documentation
+│   ├── preprocessing.md   # Data cleaning & transformation
+│   ├── modeling.md        # Training, tuning & validation
+│   ├── evaluation.md      # Metrics & interpretability
+│   └── visuals.md         # Walkthrough of key charts and plots
+│
+├── requirements.txt       # Python dependencies
+├── .gitignore             # Ignore rules for unnecessary files
+├── LICENSE                # Project license
+└── README.md              # Project overview and usage guide
+
 
 ---
 
