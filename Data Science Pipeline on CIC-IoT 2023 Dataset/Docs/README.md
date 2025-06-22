@@ -64,10 +64,11 @@ This project is a complete, production-ready **data science and analysis pipelin
 
 ### 🗂️ 7. Project Structure
 
-iot-data-pipeline/
+Data Since Pipeline/
 ├── data/
-│   ├── raw/               # Original CIC-IoT 2023 CSVs
-│   ├── processed/         # Cleaned, merged, and transformed datasets
+│   ├── raw/             # Raw CIC-IoT 2023 CSVs
+│   ├── processed/       # Merged & cleaned files
+│   └── unseen/          # Unseen file for testing
 │
 ├── notebooks/
 │   ├── 01_feature_selection.ipynb
