@@ -24,6 +24,18 @@ This project is a complete, production-ready **data science and analysis pipelin
 
 ---
 
+## 📁 Data Availability
+
+To keep the repository lightweight, output files (merged data, cleaned CSVs, models, and visualizations) are excluded from version control.
+
+- 📥 **Raw Dataset**: Download from [CIC-IoT 2023 Official Site](https://www.unb.ca/cic/datasets/iot-2023.html)
+- 🛠 **To reproduce**: Run the scripts inside the `/scripts` folder:
+  - `merge_csvs.py` → Merges and remaps raw files
+  - `01_feature_selection.ipynb` → Drops redundant features
+  - `02_modeling_evaluation.ipynb` → Trains and evaluates model
+
+ ---
+
 ## 🔧 Workflow
 
 ### 🧹 1. Data Cleaning
