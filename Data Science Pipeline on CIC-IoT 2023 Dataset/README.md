@@ -66,32 +66,27 @@ This project is a complete, production-ready **data science and analysis pipelin
 
 iot-data-pipeline/
 ├── data/
-│   ├── raw/               # Original CSVs from CIC-IoT 2023 dataset
-│   ├── processed/         # Cleaned, transformed, and SMOTE-balanced data
+│   ├── raw/               # Original CIC-IoT 2023 CSVs
+│   ├── processed/         # Cleaned, merged, and transformed datasets
 │
 ├── notebooks/
-│   ├── 01_eda.ipynb       # Exploratory data analysis and feature selection
-│   ├── 02_modeling.ipynb  # Model training and evaluation
+│   ├── 01_feature_selection.ipynb
+│   └── 02_modeling_evaluation.ipynb
 │
 ├── scripts/
-│   ├── pipeline.py        # End-to-end executable pipeline
-│   └── helpers.py         # Utility functions (feature selection, SMOTE, plots)
+│   ├── merge_csvs.py
+│   ├── predict.py
+│   ├── helpers.py
+│   └── config.py
 │
+├── models/                # Trained model files (e.g., joblib or pkl)
 ├── outputs/
-│   ├── visualizations/    # Saved figures (heatmaps, confusion matrix, etc.)
-│   └── models/            # Trained models and artifacts (if serialized)
+│   └── visualizations/    # Saved PNGs of heatmaps, feature bars, etc.
 │
-├── docs/
-│   ├── index.md           # Homepage for MkDocs documentation
-│   ├── preprocessing.md   # Data cleaning & transformation
-│   ├── modeling.md        # Training, tuning & validation
-│   ├── evaluation.md      # Metrics & interpretability
-│   └── visuals.md         # Walkthrough of key charts and plots
-│
-├── requirements.txt       # Python dependencies
-├── .gitignore             # Ignore rules for unnecessary files
-├── LICENSE                # Project license
-└── README.md              # Project overview and usage guide
+├── docs/                  # MkDocs documentation if applicable
+├── requirements.txt
+├── README.md
+└── LICENSE
 
 
 ---
