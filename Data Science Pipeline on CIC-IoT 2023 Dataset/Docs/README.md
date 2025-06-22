@@ -17,7 +17,7 @@ This project is a complete, production-ready **data science and analysis pipelin
 
 ## 🗃️ Dataset Summary
 
-- **Source**: [CIC IoT 2023](https://www.unb.ca/cic/datasets/iot-2023.html)
+- **Source**: [CIC IoT 2023 - Official Website](https://www.unb.ca/cic/datasets/iot-2023.html)
 - **Features**: 45+ numeric and protocol-based network attributes
 - **Target**: 8 multiclass labels (representing different traffic behaviors)
 - **Files Used**: 10 files (80% train + 20% test) + 1 file as unseen for prediction
