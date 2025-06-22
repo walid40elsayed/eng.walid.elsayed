@@ -1,15 +1,15 @@
-import os
 import pandas as pd
+from pathlib import Path
 from tqdm import tqdm
 import logging
 
-# ─────────────── Logging Setup ───────────────
+# ─────────────── Logging ───────────────
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 
-# ─────────────── Configuration ───────────────
-DATASET_DIRECTORY = r'A:\master\Thesis\Raw_Data\data_process\Data\data_sets\CIC-IOT-23' # change for your own path
-OUTPUT_PATH = r'A:\master\Thesis\Raw_Data\data_process\Data\test\new_2.csv' # change for your own path
-MAX_FILES = 10  # Adjust for how many files to merge
+# ─────────────── Configurable Paths ───────────────
+DATASET_DIRECTORY = Path(r"A:\master\Thesis\Raw_Data\data_process\Data\data_sets\CIC-IOT-23")
+TRAIN_OUTPUT_PATH = Path(r"A:\master\Thesis\Raw_Data\data_process\Data\test\train_merged.csv")
+UNSEEN_OUTPUT_PATH = Path(r"A:\master\Thesis\Raw_Data\data_process\Data\test\unseen.csv")
 
 # ─────────────── Label Map ───────────────
 LABEL_MAP = {
@@ -29,30 +29,18 @@ LABEL_MAP = {
     'CommandInjection': 'Web_Based', 'DictionaryBruteForce': 'Brute_Force'
 }
 
-# ─────────────── Functions ───────────────
+# ─────────────── Helpers ───────────────
 
-def load_and_merge_csvs(directory, max_files=None):
-    csv_files = [f for f in os.listdir(directory) if f.endswith('.csv')]
-    if max_files:
-        csv_files = csv_files[:max_files]
-    
-    data_frames = []
-    for file in tqdm(csv_files, desc='📂 Loading CSV files'):
-        path = os.path.join(directory, file)
+def load_csv_files(files):
+    dfs = []
+    for file in tqdm(files, desc="📂 Loading CSV files"):
         try:
-            df = pd.read_csv(path)
-            data_frames.append(df)
-            logging.info(f"✓ Loaded {file} (shape: {df.shape})")
+            df = pd.read_csv(file)
+            dfs.append(df)
+            logging.info(f"✓ Loaded {file.name} (shape: {df.shape})")
         except Exception as e:
-            logging.warning(f"× Failed to load {file}: {e}")
-    
-    if not data_frames:
-        logging.error("❌ No valid dataframes to merge.")
-        return None
-
-    combined = pd.concat(data_frames, ignore_index=True)
-    logging.info(f"\n🔗 Merged dataset shape: {combined.shape}")
-    return combined
+            logging.warning(f"× Failed to load {file.name}: {e}")
+    return pd.concat(dfs, ignore_index=True) if dfs else None
 
 def standardize_columns(df):
     df.columns = df.columns.str.lower()
@@ -60,7 +48,7 @@ def standardize_columns(df):
         'protocol type': 'protocol_type',
         'tot sum': 'tot_sum',
         'tot size': 'tot_size',
-        'magnitue': 'magnitude'  # known typo in raw data
+        'magnitue': 'magnitude'  # correct known typo
     }, inplace=True)
     return df
 
@@ -70,14 +58,36 @@ def remap_labels(df, label_column='label'):
     logging.info(df[label_column].value_counts())
     return df
 
-def main():
-    df = load_and_merge_csvs(DATASET_DIRECTORY, MAX_FILES)
-    if df is not None:
-        df = standardize_columns(df)
-        df = remap_labels(df, label_column='label')
-        df.to_csv(OUTPUT_PATH, index=False)
-        logging.info(f"\n✅ Merged dataset saved to: {OUTPUT_PATH}")
+# ─────────────── Main ───────────────
 
-# ─────────────── Entry Point ───────────────
+def main():
+    all_files = sorted(DATASET_DIRECTORY.glob("*.csv"))
+    if len(all_files) < 11:
+        logging.error("❌ Not enough CSV files. Need at least 11.")
+        return
+
+    # First 10 → training set
+    train_files = all_files[:10]
+    # 11th → unseen set
+    unseen_file = all_files[10]
+
+    # Process training set
+    train_df = load_csv_files(train_files)
+    if train_df is not None:
+        train_df = remap_labels(standardize_columns(train_df))
+        TRAIN_OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+        train_df.to_csv(TRAIN_OUTPUT_PATH, index=False)
+        logging.info(f"\n✅ Saved merged training dataset: {TRAIN_OUTPUT_PATH}")
+
+    # Process unseen set
+    try:
+        unseen_df = pd.read_csv(unseen_file)
+        unseen_df = remap_labels(standardize_columns(unseen_df))
+        UNSEEN_OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+        unseen_df.to_csv(UNSEEN_OUTPUT_PATH, index=False)
+        logging.info(f"✅ Saved unseen dataset: {UNSEEN_OUTPUT_PATH}")
+    except Exception as e:
+        logging.error(f"× Failed to process unseen file {unseen_file.name}: {e}")
+
 if __name__ == "__main__":
     main()
