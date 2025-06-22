@@ -62,7 +62,7 @@ This project is a complete, production-ready **data science and analysis pipelin
 
 ---
 
-## 🗂️ 7. Project Structure
+### 🗂️ 7. Project Structure
 
 iot-data-pipeline/
 ├── data/
@@ -96,7 +96,7 @@ iot-data-pipeline/
 
 ---
 
-## 📊 8. Sample Results
+### 📊 8. Sample Results
 
 | Metric     | Value (Weighted Avg) |
 |------------|----------------------|
@@ -109,16 +109,10 @@ iot-data-pipeline/
 
 ---
 
-## 🚀 9. Getting Started
+### 🚀 9. Getting Started
 
 Clone the repository and install required packages:
 
-```bash
-git clone https://github.com/your-username/iot-data-pipeline.git
-cd iot-data-pipeline
-pip install -r requirements.txt
-
----
 
 ## 🧑‍💻 10. About the Author
 Walid is a data scientist focused on building interpretable, production-ready machine learning systems. His passion lies in making technical workflows accessible and transparent through visualization, thoughtful design, and reproducibility. He blends deep curiosity with a methodical mindset to extract meaning from data—one line of Python at a time.
@@ -126,7 +120,12 @@ Walid is a data scientist focused on building interpretable, production-ready ma
 
 ---
 
-📄 11. License
+### 📄 11. License
 This project is licensed under the MIT License. See the LICENSE file for details.
+
+
+
+
+
 
 
