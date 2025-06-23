@@ -123,7 +123,7 @@ Clone the repository and install required packages:
 
 
 ## 🧑‍💻 10. About the Author
-Walid is a data scientist focused on building interpretable, production-ready machine learning systems. His passion lies in making technical workflows accessible and transparent through visualization, thoughtful design, and reproducibility. He blends deep curiosity with a methodical mindset to extract meaning from data—one line of Python at a time.
+I am a data scientist focused on building interpretable, production-ready machine learning systems. My passion lies in making technical workflows accessible and transparent through visualization, thoughtful design, and reproducibility. I blend deep curiosity with a methodical mindset to extract meaning from data—one line of Python at a time.
 “This project reflects my belief that clean data pipelines and clear results speak louder than hype. Strong modeling starts with understanding—and that begins with analysis.”
 
 ---
