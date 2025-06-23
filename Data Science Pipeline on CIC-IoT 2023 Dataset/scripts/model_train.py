@@ -71,7 +71,7 @@ if __name__ == "__main__":
     X = resampled.drop('label', axis=1)
     y = resampled['label']
 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, test_size=0.3, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, test_size=0.2, random_state=42)
 
     model = train_rf_model(X_train, y_train)
 
@@ -82,5 +82,14 @@ if __name__ == "__main__":
     log_metrics(acc, f1)
     os.makedirs(os.path.dirname(args.model), exist_ok=True)
     joblib.dump(model, args.model)
+
+    # Check model size
+    model_size_kb = os.path.getsize(MODEL_PATH) / 1024
+    print(f"🧠 Model size: {model_size_kb:.2f} KB")
+
+    # Measure inference time
+    start = time.time()
+    _ = model.predict(X_test[:1])
+    print(f"⚡ Inference Time: {(time.time() - start)*1000:.2f} ms")
 
     print(f"\n✅ Model saved to: {args.model}")
