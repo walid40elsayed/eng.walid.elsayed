@@ -1,6 +1,6 @@
  # 🧠 Data Science Pipeline on CIC-IoT 2023 Dataset
 
-This project is a complete, production-ready **data science and analysis pipeline** for multiclass classification on IoT network traffic data. While the dataset originates from the cybersecurity domain, the project emphasizes **feature selection**, **data balancing**, **modeling**, and **interpretability**—making it a strong portfolio piece for any aspiring data scientist.
+This project is a complete, production-ready **data science and analysis pipeline** for multiclass classification on IoT network traffic data. While the dataset originates from the cybersecurity domain, the project emphasizes **feature selection**, **data balancing**, **modeling**, and **interpretability**—making it a strong portfolio piece for any aspiring data scientist. This project presents a structured and reproducible data analysis pipeline applied to the CIC-IoT 2023 dataset. The focus is on preprocessing, exploratory data analysis, class distribution balancing, and statistical testing (scantest) to uncover patterns and prepare the data for downstream modeling.
 
 ---
 
@@ -12,6 +12,21 @@ This project is a complete, production-ready **data science and analysis pipelin
 - Balanced modeling using SMOTE
 - Hyperparameter tuning and model optimization
 - Beautiful visualizations for insights and communication
+
+---
+
+## 📊 Key Components
+- EDA: Visual summaries of feature distributions, missing values, and correlations
+- SMOTE: Synthetic Minority Over-sampling to balance class distributions
+- Scantest: Statistical tests (e.g. chi-square, ANOVA, t-tests) to evaluate feature relevance
+- Visualization: Histograms, boxplots, heatmaps, and class distribution plots
+
+---
+
+## 📦 Dependencies
+- pandas, numpy, matplotlib, seaborn
+- scikit-learn, imbalanced-learn
+- scipy, statsmodels
 
 ---
 
