@@ -6,7 +6,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # 📂 Data directories
 DATA_RAW       = r'A:\master\Thesis\Raw_Data\data_process\Data\data_sets\CIC-IOT-23' # change for your own path
 DATA_PROCESSED = r'A:\master\Thesis\Raw_Data\data_process\Data\test' # change for your own path
-DATA_UNSEEN    = BASE_DIR / "data" / "unseen" # change for your own path
 
 # 📄 Input/output files
 TRAIN_PATH     = r'A:\master\Thesis\Raw_Data\data_process\Data\test\new_2.csv' # change for your own path
