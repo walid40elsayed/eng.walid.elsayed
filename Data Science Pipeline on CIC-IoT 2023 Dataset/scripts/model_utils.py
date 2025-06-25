@@ -10,7 +10,7 @@ from imblearn.over_sampling import SMOTE
 def clean_memory():
     gc.collect()
 
-def log_metrics(acc, f1, log_path=r'A:\master\Thesis\Raw_Data\data_process\Data\test\training_log.csv'):
+def log_metrics(acc, f1, log_path=r'.\test\training_log.csv'):
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     with open(log_path, "a") as log_file:
         log_file.write(f"{timestamp}, Accuracy: {acc:.4f}, F1: {f1:.4f}\n")
