@@ -34,7 +34,7 @@ This project is a complete, production-ready **data science and analysis pipelin
 
 - **Source**: [CIC IoT 2023 - Official Website](https://www.unb.ca/cic/datasets/iot-2023.html)
 - **Features**: 45+ numeric and protocol-based network attributes
-- **Target**: 8 multiclass labels (representing different traffic behaviors)
+- **Target**: 8 multiclass labels (representing different traffic behaviors) + binary classification
 - **Files Used**: 10 files (80% train + 20% test) + 1 file as unseen for prediction
 
 ---
@@ -121,12 +121,12 @@ Data Since Pipeline/
 
 ### 📊 8. Sample Results
 
-| Metric     | Value (Weighted Avg) |
-|------------|----------------------|
-| Accuracy   | 99.91%               |
-| Precision  | 99.91%               |
-| Recall     | 99.91%               |
-| F1 Score   | 99.91%               |
+| Metric     | Multi class  | Binary       |
+|------------|--------------|--------------|
+| Accuracy   | 99.91%       | 99.81%       |
+| Precision  | 99.91%       | 99.81%       |
+| Recall     | 99.91%       | 99.81%       |
+| F1 Score   | 99.91%       | 99.81%       |
 
 *Results will vary based on feature selection and model.*
 
