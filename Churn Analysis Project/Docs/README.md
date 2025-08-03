@@ -11,8 +11,6 @@ This repository contains a complete end-to-end project for analyzing and predict
 ├── Churn_Analysis.ipynb       # Main Jupyter Notebook for model pipeline
 ├── Churn Analysis.pbix        # Power BI report for churn visualization
 ├── Predection_Data.xlsx       # Input dataset
-├── churn_model.pkl            # Trained Random Forest model
-├── encoding_pipeline.pkl      # Saved pipeline for preprocessing
 ├── requirements.txt           # Python package requirements
 └── README.md                  # Project overview
 ```
@@ -83,14 +81,7 @@ data = pd.read_excel("Predection_Data.xlsx", sheet_name='vw_ChurnData')
 - Accuracy, Confusion Matrix, Classification Report
 - Handled model evaluation on unseen test data
 
-### 6. 💾 Pipeline Saving
-
-```python
-joblib.dump(model_pipeline, "churn_model.pkl")
-joblib.dump(encoder_pipeline, "encoding_pipeline.pkl")
-```
-
-### 7. 📊 Dashboard
+### 6. 📊 Dashboard
 
 - Created interactive Power BI report
 - Visualized churn by region, gender, service type, and payment method
