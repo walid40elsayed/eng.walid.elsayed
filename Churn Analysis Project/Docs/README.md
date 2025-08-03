@@ -7,12 +7,24 @@ This repository contains a complete end-to-end project for analyzing and predict
 ## 📁 Project Structure
 
 ```
-.
-├── Churn_Analysis.ipynb       # Main Jupyter Notebook for model pipeline
-├── Churn Analysis.pbix        # Power BI report for churn visualization
-├── Predection_Data.xlsx       # Input dataset
-├── requirements.txt           # Python package requirements
-└── README.md                  # Project overview
+Churn Analysis Project/
+├── data/                   # Folder for datasets
+│   ├── Prediction_Data.xlsx
+│   └── processed_data/     # Store cleaned/processed data
+├── notebooks/              # Jupyter notebooks
+│   ├── Churn_Analysis.ipynb
+│   └── EDA.ipynb           # Separate EDA notebook (optional)
+├── models/                 # Saved models
+│   ├── random_forest.pkl
+│   └── feature_importance.png
+├── reports/                # Analysis outputs
+│   ├── churn_report.pdf
+│   └── insights.md
+├── PowerBI/                # Dashboard files
+│   ├── dashboard.pbix
+│   └── README_dashboard.md # How to use the dashboard
+├── README.md               # Main project documentation
+└── requirements.txt        # Python dependencies             # Project overview
 ```
 
 ---
