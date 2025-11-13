@@ -243,7 +243,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact
 
 For questions about this model or implementation details:
-- **Email**: [walid,em724@gmail.com]
+- **Email**: [walid.em724@gmail.com]
 
 ---
 
